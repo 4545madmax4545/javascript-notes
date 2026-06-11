@@ -1,112 +1,280 @@
-```
-JAVASCRIPT TYPE COERCION
-═══════════════════════════════════════════════
+# JavaScript Type Coercion
 
-WHAT IS TYPE COERCION?
-─────────────────────
+## What is Type Coercion?
+
 Type Coercion means JavaScript automatically converts one data type into another type to perform an operation.
 
-GOLDEN RULES
-────────────
-==  → Checks value only (JavaScript converts types)
-=== → Checks value + type (No conversion)
+## Golden Rules
 
-+ with string → Concatenation
--, *, /, %    → Convert to Number
+* `==` → Checks value only (JavaScript converts types)
+* `===` → Checks value + type (No conversion)
+* `+` with string → Concatenation
+* `-`, `*`, `/`, `%` → Convert to Number
 
+---
 
-1. '5' + 3
-──────────
-Output:   "53"
-Why?      String + Anything = String
-Internal: '5' + '3'
-Real:     "House No: " + 5  →  "House No: 5"
-Trick:    String + Anything = Join
+## 1. '5' + 3
 
+### Code
 
-2. '5' - 3
-──────────
-Output:   2
-Why?      Math operators convert strings to numbers
-Internal: 5 - 3
-Trick:    - * / % = Number Conversion
+```javascript
+'5' + 3
+```
 
+### Output
 
-3. '5' == 5
-───────────
-Output:   true
-Why?      Loose equality checks value only
-Internal: 5 == 5
-Trick:    == → Value Only
+```javascript
+"53"
+```
 
+### Why?
 
-4. '5' === 5
-────────────
-Output:   false
-Why?      Strict equality checks value and type
-Trick:    === → Value + Type
+String + Anything = String
 
+Internally:
 
-5. null == undefined
-────────────────────
-Output:   true
-Why?      Special JavaScript rule
-Trick:    Best Friends 🤝
+```javascript
+'5' + '3'
+```
 
+### Real Life
 
-6. null === undefined
-─────────────────────
-Output:   false
-Why?      Different types
-Trick:    Best Friends with Different ID Cards 😄
+```javascript
+"House No: " + 5
+// "House No: 5"
+```
 
+### Memory Trick
 
-7. [] == false
-──────────────
-Output:   true
-Why?      false → 0, [] → '' → 0, then 0 == 0
-Trick:    JS Magic 🪄
+String + Anything = Join
 
+---
 
-8. [] === false
-───────────────
-Output:   false
-Why?      [] → Object, false → Boolean, Different types
-Trick:    Object ≠ Boolean
+## 2. '5' - 3
 
+### Code
 
-FINGER-TIP REVISION
-═══════════════════
-Code            │ Output │ Trick
-────────────────┼────────┼──────────────────
-'5' + 3         │ "53"   │ String Joins
-'5' - 3         │ 2      │ Number Conversion
-'5' == 5        │ true   │ Value Only
-'5' === 5       │ false  │ Value + Type
-null == undef   │ true   │ Best Friends
-null === undef  │ false  │ Different Types
-[] == false     │ true   │ JS Magic
-[] === false    │ false  │ Object ≠ Boolean
+```javascript
+'5' - 3
+```
 
+### Output
 
-INTERVIEW QUESTIONS
-═══════════════════
-• What is Type Coercion?
-• Difference between == and ===?
-• Why does '5' + 3 return "53"?
-• Why does '5' - 3 return 2?
-• Why is [] == false true?
-• Why is null == undefined true?
+```javascript
+2
+```
 
+### Why?
 
-ONE-LINER
-═════════
+Math operators convert strings to numbers.
+
+Internally:
+
+```javascript
+5 - 3
+```
+
+### Memory Trick
+
+`-`, `*`, `/`, `%` = Number Conversion
+
+---
+
+## 3. '5' == 5
+
+### Code
+
+```javascript
+'5' == 5
+```
+
+### Output
+
+```javascript
+true
+```
+
+### Why?
+
+Loose equality checks value only.
+
+Internally:
+
+```javascript
+5 == 5
+```
+
+### Memory Trick
+
+`==` → Value Only
+
+---
+
+## 4. '5' === 5
+
+### Code
+
+```javascript
+'5' === 5
+```
+
+### Output
+
+```javascript
+false
+```
+
+### Why?
+
+Strict equality checks value and type.
+
+### Memory Trick
+
+`===` → Value + Type
+
+---
+
+## 5. null == undefined
+
+### Code
+
+```javascript
+null == undefined
+```
+
+### Output
+
+```javascript
+true
+```
+
+### Why?
+
+Special JavaScript rule.
+
+### Memory Trick
+
+Best Friends 🤝
+
+---
+
+## 6. null === undefined
+
+### Code
+
+```javascript
+null === undefined
+```
+
+### Output
+
+```javascript
+false
+```
+
+### Why?
+
+Different types.
+
+### Memory Trick
+
+Best Friends with Different ID Cards 😄
+
+---
+
+## 7. [] == false
+
+### Code
+
+```javascript
+[] == false
+```
+
+### Output
+
+```javascript
+true
+```
+
+### Why?
+
+JavaScript internally converts:
+
+```javascript
+false → 0
+[] → '' → 0
+0 == 0
+```
+
+### Memory Trick
+
+JS Magic 🪄
+
+---
+
+## 8. [] === false
+
+### Code
+
+```javascript
+[] === false
+```
+
+### Output
+
+```javascript
+false
+```
+
+### Why?
+
+```javascript
+[]      → Object
+false   → Boolean
+```
+
+Different types.
+
+### Memory Trick
+
+Object ≠ Boolean
+
+---
+
+# Finger-Tip Revision
+
+| Code                 | Output  | Memory Trick      |
+| -------------------- | ------- | ----------------- |
+| `'5' + 3`            | `"53"`  | String Joins      |
+| `'5' - 3`            | `2`     | Number Conversion |
+| `'5' == 5`           | `true`  | Value Only        |
+| `'5' === 5`          | `false` | Value + Type      |
+| `null == undefined`  | `true`  | Best Friends      |
+| `null === undefined` | `false` | Different Types   |
+| `[] == false`        | `true`  | JS Magic          |
+| `[] === false`       | `false` | Object ≠ Boolean  |
+
+---
+
+# Interview Questions
+
+1. What is Type Coercion?
+2. Difference between `==` and `===`?
+3. Why does `'5' + 3` return `"53"`?
+4. Why does `'5' - 3` return `2`?
+5. Why is `[] == false` true?
+6. Why is `null == undefined` true?
+
+---
+
+# Interview One-Liner
+
 Type Coercion is JavaScript's automatic conversion of one data type into another type during operations or comparisons.
 
+---
 
-KEY TAKEAWAYS
-═════════════
-✅ Prefer === over ==
-✅ Understand coercion instead of memorizing outputs
-✅ Avoid relying on weird coercion rules in production code
-```
+# Key Takeaways
+
+* ✅ Prefer `===` over `==`
+* ✅ Understand coercion instead of memorizing outputs
+* ✅ Avoid relying on weird coercion rules in production code
